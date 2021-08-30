@@ -1,27 +1,35 @@
 package com.tsayun.web_crawler.traversableTree
 
+import java.util.*
+
 interface TraversableTree<T> {
     interface Node<T>{
         val value: T
         val children: List<Node<T>>
     }
 
-    fun traversed(order: TraverseOrder) : Iterable<T>;
+    fun traversed(order: TraverseOrder) : Iterable<T>
 
 }
 
 enum class TraverseOrder{
     //todo: doc TraverseOrder items
 
-    //current, left, right
+    //current, left -> right
     NLR,
 
-    //left, right, current
-    LRN,
+    //current, right -> left
+    NRL,
 
-    //left, current, right
-    LNR,
+    NLRBreadth,
 
-    //right, current, left
-    RNL
+    NRLBreadth,
+
+
+    //left -> right, current
+//    LRN,
+
+    //right -> left, current
+//    RLN
+    //todo: implement breadth-first traversal
 }
